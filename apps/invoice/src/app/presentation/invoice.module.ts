@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UiModule } from '@siste/ui';
 import { InvoiceRoutingModule } from './invoice-routing.module';
-import { NxWelcomeComponent } from './pages/nx-welcome.component';
+import { LoginPageComponent } from './pages/login.page';
 
 @NgModule({
-  declarations: [NxWelcomeComponent],
+  declarations: [ LoginPageComponent ],
   imports: [
-    InvoiceRoutingModule
+    UiModule,
+    InvoiceRoutingModule,
   ],
   providers: [],
 })

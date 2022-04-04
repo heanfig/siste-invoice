@@ -1,15 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { NxWelcomeComponent } from './nx-welcome.component';
-
+import { LoginPageComponent } from './login.page';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NxWelcomeComponent],
+      declarations: [LoginPageComponent],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(NxWelcomeComponent);
+    const fixture = TestBed.createComponent(LoginPageComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
