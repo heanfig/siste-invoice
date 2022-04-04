@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/invoice",
         "index": "apps/invoice/src/index.html",
@@ -14,8 +16,14 @@
         "polyfills": "apps/invoice/src/polyfills.ts",
         "tsConfig": "apps/invoice/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/invoice/src/favicon.ico", "apps/invoice/src/assets"],
-        "styles": ["apps/invoice/src/styles.scss"],
+        "assets": [
+          "apps/invoice/src/favicon.ico",
+          "apps/invoice/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/invoice/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -80,7 +88,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/invoice"],
+      "outputs": [
+        "coverage/apps/invoice"
+      ],
       "options": {
         "jestConfig": "apps/invoice/jest.config.js",
         "passWithNoTests": true
