@@ -1,7 +1,8 @@
 <div class="layout-container">
+    <siste-top-nav (sideNavToggled)="snav.toggle()"></siste-top-nav>
     <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="toolBarHeight">
       <mat-sidenav #snav class="sidenav mat-elevation-z10" [(opened)]="sideNavOpened">
-        hola
+        <siste-side-nav></siste-side-nav>
       </mat-sidenav>
       <mat-sidenav-content>
         <main class="main-container">

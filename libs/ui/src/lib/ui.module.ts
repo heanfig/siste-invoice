@@ -14,7 +14,6 @@ import { AngularMaterialModule } from './angular-material.module';
   declarations: [
     ButtonComponent,
     InputComponent
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  ]
 })
 export class UiModule {}
