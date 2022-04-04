@@ -1,0 +1,12 @@
+<div class="layout-container">
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="toolBarHeight">
+      <mat-sidenav #snav class="sidenav mat-elevation-z10" [(opened)]="sideNavOpened">
+        hola
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <main class="main-container">
+          <router-outlet></router-outlet>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

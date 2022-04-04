@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './pages/login.page';
 
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
+    component: LoginPageComponent,
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
+    component: LoginPageComponent,
   },
 ];
 
@@ -16,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class InvoiceRoutingModule {}
+export class LoginRoutingModule {}
