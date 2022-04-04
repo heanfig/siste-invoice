@@ -1,0 +1,28 @@
+{
+  "root": "apps/invoice-e2e",
+  "sourceRoot": "apps/invoice-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/invoice-e2e/cypress.json",
+        "devServerTarget": "invoice:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "invoice:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/invoice-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["invoice"]
+}

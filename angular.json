@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "invoice": "apps/invoice",
+    "invoice-e2e": "apps/invoice-e2e"
+  }
+}
