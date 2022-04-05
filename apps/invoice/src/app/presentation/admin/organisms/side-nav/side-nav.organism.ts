@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { adminRoutes } from '../../admin-routes';
 
 @Component({
@@ -6,12 +6,9 @@ import { adminRoutes } from '../../admin-routes';
   templateUrl: './side-nav.organism.html',
   styleUrls: ['./side-nav.organism.scss']
 })
-export class SideNavComponent implements OnInit {
-  showMenu = false;
+export class SideNavComponent {
   routes = adminRoutes;
   constructor() {
     console.warn(this.routes);
   }
-
-  ngOnInit() {}
 }

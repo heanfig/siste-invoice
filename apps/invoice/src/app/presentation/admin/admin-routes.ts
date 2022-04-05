@@ -5,11 +5,11 @@ export const adminRoutes = [
     {
         path: 'home',
         component: HomePageComponent,
-        data: { icon: 'bar_chart', text: 'Charts' }
+        data: { icon: 'bar_chart', text: 'Inicio' }
     },
     {
         path: 'list-invoice',
         component: ListInvoicePageComponent,
-        data: { icon: 'bar_chart', text: 'Charts' }
+        data: { icon: 'bar_chart', text: 'Facturas' }
     },
 ];

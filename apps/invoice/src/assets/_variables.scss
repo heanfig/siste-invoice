@@ -1,2 +1,36 @@
 $white: #ffffff;
 $main-background-color: #fafafa;
+$primary-color: #0A166E;
+
+$siste-brand: (
+    50: #E4E7F3,
+    100: #BCC3E1,
+    200: #8F9BCE,
+    300: #6272BA,
+    400: #4054AB,
+    500: #1E369C,
+    600: #1A3094,
+    700: #16298A,
+    800: #122280,
+    900: $primary-color,
+    A100: #A0A8FF,
+    A200: #6D79FF,
+    A400: #3A4BFF,
+    A700: #2034FF,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);
