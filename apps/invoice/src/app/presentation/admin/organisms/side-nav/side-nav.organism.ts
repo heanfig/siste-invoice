@@ -9,6 +9,5 @@ import { adminRoutes } from '../../admin-routes';
 export class SideNavComponent {
   routes = adminRoutes;
   constructor() {
-    console.warn(this.routes);
   }
 }

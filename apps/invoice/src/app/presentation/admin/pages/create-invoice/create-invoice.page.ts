@@ -4,14 +4,13 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { InvoiceEntity } from '../../../../data/invoice.entity';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'siste-list-invoice-page',
-  templateUrl: './list-invoice.page.html',
-  styleUrls: ['./list-invoice.page.scss'],
+  selector: 'siste-create-invoice-page',
+  templateUrl: './create-invoice.page.html',
+  styleUrls: ['./create-invoice.page.scss'],
 })
-export class ListInvoicePageComponent implements AfterViewInit {
+export class CreateInvoicePageComponent implements AfterViewInit {
   displayedColumns = ['id', 'createdDate', 'trasmiterPerson', 'buyerPerson', 'priceIVA', 'IVA', 'items'];
   dataSource: MatTableDataSource<InvoiceEntity>;
   selection: SelectionModel<InvoiceEntity>;
@@ -19,7 +18,7 @@ export class ListInvoicePageComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor(protected _router: Router) {
+  constructor() {
     this.dataSource = new MatTableDataSource<InvoiceEntity>([
       {
         id: "1",
@@ -72,10 +71,6 @@ export class ListInvoicePageComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-
-  redirectToNewInvoice(){
-    this._router.navigate(['/admin/create']);
   }
 
   /** Whether the number of selected elements matches the total number of rows. */

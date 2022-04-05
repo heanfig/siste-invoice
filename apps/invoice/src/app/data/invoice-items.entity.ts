@@ -1,5 +1,8 @@
 export interface InvoiceItemEntity {
     readonly id: string;
-    name: string;
+    description: string;
+    quantity: number;
+    uniquePrice: number;
+    totalPrice: number;
 }
   

@@ -1,15 +1,19 @@
-import { HomePageComponent } from "./pages/home/dashboard-home.page";
+import { CreateInvoicePageComponent } from "./pages/create-invoice/create-invoice.page";
 import { ListInvoicePageComponent } from "./pages/list-invoice/list-invoice.page";
 
 export const adminRoutes = [
     {
-        path: 'home',
-        component: HomePageComponent,
-        data: { icon: 'bar_chart', text: 'Inicio' }
+        path: '',
+        redirectTo: 'list',
     },
     {
-        path: 'list-invoice',
+        path: 'list',
         component: ListInvoicePageComponent,
-        data: { icon: 'bar_chart', text: 'Facturas' }
+        data: { icon: 'dvr', text: 'Ver Facturas' }
     },
+    {
+        path: 'create',
+        component: CreateInvoicePageComponent,
+        data: { icon: 'save', text: 'Crear Factura' }
+    }
 ];

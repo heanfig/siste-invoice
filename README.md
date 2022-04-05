@@ -2,6 +2,13 @@
 
 # Siste
 
+- tema personalizado usando Angular material
+- Gestor de tareas de NX, DIAGRAMA
+- Diagrama de componentes
+- publicarlo online
+- Diseño atomico
+- Creacion componentes reutilizables
+
 This project was generated using [Nx](https://nx.dev).
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>

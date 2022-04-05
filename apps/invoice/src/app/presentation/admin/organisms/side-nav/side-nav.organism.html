@@ -1,11 +1,13 @@
 <mat-nav-list>
-  <a
-    *ngFor="let item of routes"
-    mat-list-item
-    [routerLinkActive]="'active'"
-    [routerLink]="['/admin', item.path]"
-  >
-    <mat-icon class="sidenav-icon">{{ item.data.icon }}</mat-icon>
-    {{ item.data.text }}
-  </a>
+  <ng-container *ngFor="let item of routes">
+    <a
+      *ngIf="item.data"
+      mat-list-item
+      [routerLinkActive]="'active'"
+      [routerLink]="['/admin', item.path]"
+    >
+      <mat-icon class="sidenav-icon">{{ item.data?.icon }}</mat-icon>
+      {{ item.data?.text }}
+    </a>
+  </ng-container>
 </mat-nav-list>

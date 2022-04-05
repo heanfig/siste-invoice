@@ -1,0 +1,120 @@
+<section id="invoice-table" class="mat-elevation-z8 bg-white">
+
+
+  <div class="invoice-table__toolbar">
+    <h1> Registrar Factura </h1>
+</div>
+
+  <mat-tab-group>
+    <mat-tab label="Editar Factura"> 
+      
+      <mat-card fxFlex.gt-xs="40" class="mb15">
+        <mat-card-header>
+          <mat-card-title>Basic datepicker</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
+       
+       
+        </mat-card-content>
+      </mat-card>
+
+    </mat-tab>
+    <mat-tab label="Gestionar Productos"> 
+        <div class="invoice-table__toolbar">
+          <h2> Productos </h2>
+        </div>
+        <table mat-table [dataSource]="dataSource" matSort class="siste-table">
+          
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación </th>
+            <td mat-cell *matCellDef="let row"> {{row.createdDate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="trasmiterPerson">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Emisor </th>
+            <td mat-cell *matCellDef="let row"> 
+              <button mat-raised-button color="accent">
+                <mat-icon color="primary">record_voice_over</mat-icon> 
+                {{row.trasmiterPerson.name}} 
+              </button>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="buyerPerson">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Comprador </th>
+            <td mat-cell *matCellDef="let row"> 
+              <button mat-raised-button color="accent">
+                  <mat-icon color="primary">person_add</mat-icon> 
+                  {{row.buyerPerson.name}} 
+              </button>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="priceIVA">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor sin IVA </th>
+            <td mat-cell *matCellDef="let row"> {{row.priceIVA}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="IVA">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> IVA </th>
+            <td mat-cell *matCellDef="let row"> {{row.IVA}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="items">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Items </th>
+            <td mat-cell *matCellDef="let row"> 
+              <button mat-raised-button color="accent"
+                  matBadge="2" matBadgePosition="after" matBadgeColor="primary">
+                  <mat-icon color="primary">assignment</mat-icon> 
+                  ver ítems
+              </button>
+            </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+        </table>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-tab>
+  </mat-tab-group>
+
+  </section>

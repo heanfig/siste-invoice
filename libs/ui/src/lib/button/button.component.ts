@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'siste-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
 
-  constructor() { }
+  @Output() public buttonPressed!: EventEmitter<unknown>;
 
-  ngOnInit(): void {
+  constructor() { 
+    this.buttonPressed = new EventEmitter<unknown>();
+  }
+
+  onButtonPressed($event: Event) {
+    this.buttonPressed.emit($event);
   }
 
 }
