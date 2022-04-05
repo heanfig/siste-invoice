@@ -1,17 +1,45 @@
 @import './../../../../../assets/theme';
 @import './../../../../../assets/variables';
 
+.create-invoice-form {
+    padding: 1.5rem;
+}
+
+.group-field {
+    border: 1px solid;
+    padding: 10px;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.group-field__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0A166E;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0px 0px 15px;
+}
+
+mat-form-field {
+    margin: 10px 16px 0 0px;
+}
+
+mat-form-field ::ng-deep .mat-form-field-label {
+    font-size: 15px;
+}
+
+
+
+
 .invoice-table {
     &__toolbar {
         display: flex;
         padding: 2rem 1rem 0;
         gap: 17px;
-    }
-    &__filter {
-        display: flex;
-        padding: 0rem 1rem 0;
-        gap: 17px;
-        justify-content: end;
     }
 }
 

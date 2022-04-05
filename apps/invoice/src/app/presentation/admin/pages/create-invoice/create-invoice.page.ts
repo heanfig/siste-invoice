@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import { InvoiceEntity } from '../../../../data/invoice.entity';
+import { InvoiceItemEntity } from '../../../../data/invoice-items.entity';
 
 @Component({
   selector: 'siste-create-invoice-page',
@@ -11,54 +11,38 @@ import { InvoiceEntity } from '../../../../data/invoice.entity';
   styleUrls: ['./create-invoice.page.scss'],
 })
 export class CreateInvoicePageComponent implements AfterViewInit {
-  displayedColumns = ['id', 'createdDate', 'trasmiterPerson', 'buyerPerson', 'priceIVA', 'IVA', 'items'];
-  dataSource: MatTableDataSource<InvoiceEntity>;
-  selection: SelectionModel<InvoiceEntity>;
+  displayedColumns = ['id','description', 'quantity', 'uniquePrice', 'totalPrice'];
+  dataSource: MatTableDataSource<InvoiceItemEntity>;
+  selection: SelectionModel<InvoiceItemEntity>;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor() {
-    this.dataSource = new MatTableDataSource<InvoiceEntity>([
+    this.dataSource = new MatTableDataSource<InvoiceItemEntity>([
       {
-        id: "1",
-        createdDate: "2020-01-01",
-        trasmiterPerson: {
-          name: "Herman",
-          nit: "123456789-0"
-        },
-        buyerPerson: {
-          name: "Manuela",
-          nit: "987654321-0"
-        },
-        priceIVA: 0,
-        IVA: 0,
-        items: [
-          {
-            id: "00001",
-            description: "Producto 1",
-            quantity: 6,
-            uniquePrice: 100,
-            totalPrice: 600,
-          },
-          {
-            id: "00002",
-            description: "Producto 2",
-            quantity: 2,
-            uniquePrice: 200,
-            totalPrice: 400,
-          },
-          {
-            id: "00003",
-            description: "Producto 3",
-            quantity: 1,
-            uniquePrice: 300,
-            totalPrice: 300,
-          },
-        ]
+        id: "000000001",
+        description: "Lapicero",
+        quantity: 5,
+        uniquePrice: 19500,
+        totalPrice: 99500,
+      },      
+      {
+        id: "000000002",
+        description: "Borrador",
+        quantity: 5,
+        uniquePrice: 19500,
+        totalPrice: 99500,
       },
+      {
+        id: "000000003",
+        description: "Lapiz",
+        quantity: 5,
+        uniquePrice: 19500,
+        totalPrice: 99500,
+      }
     ]);
-    this.selection = new SelectionModel<InvoiceEntity>(true, []);
+    this.selection = new SelectionModel<InvoiceItemEntity>(true, []);
   }
 
   ngAfterViewInit() {

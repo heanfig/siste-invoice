@@ -9,111 +9,146 @@
     <mat-tab label="Editar Factura"> 
       
       <mat-card fxFlex.gt-xs="40" class="mb15">
-        <mat-card-header>
-          <mat-card-title>Basic datepicker</mat-card-title>
-        </mat-card-header>
+
         <mat-card-content class="">
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+          <div class="create-invoice-form">
 
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Fecha de creacion">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+            <div class="group-field">
+              <div class="group-field__title"> 
+                <mat-icon color="primary">record_voice_over</mat-icon> 
+                <span>Datos de Emisor</span>
+              </div>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombre de emisor">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nit de emisor">
+              </mat-form-field>
+            </div>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+            <div class="group-field">
+              <div class="group-field__title"> 
+                <mat-icon color="primary">record_voice_over</mat-icon> 
+                <span>Datos de Comprador </span>
+              </div>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nombre de Comprador">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Nit de Comprador">
+              </mat-form-field>
+            </div>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Valor sin IVA">
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="IVA">
+            </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+            <div class="create-invoice-form__cta">
+                <siste-button> Registrar Factura </siste-button>
+            </div>
 
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
-       
+          </div>
        
         </mat-card-content>
       </mat-card>
 
     </mat-tab>
     <mat-tab label="Gestionar Productos"> 
-        <div class="invoice-table__toolbar">
-          <h2> Productos </h2>
+
+      <div class="create-invoice-form">
+
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de creacion">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="group-field">
+          <div class="group-field__title"> 
+            <mat-icon color="primary">record_voice_over</mat-icon> 
+            <span>Datos de Emisor</span>
+          </div>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre de emisor">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nit de emisor">
+          </mat-form-field>
         </div>
-        <table mat-table [dataSource]="dataSource" matSort class="siste-table">
-          
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-          </ng-container>
 
-          <ng-container matColumnDef="createdDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación </th>
-            <td mat-cell *matCellDef="let row"> {{row.createdDate}} </td>
-          </ng-container>
+        <div class="group-field">
+          <div class="group-field__title"> 
+            <mat-icon color="primary">record_voice_over</mat-icon> 
+            <span>Datos de Comprador </span>
+          </div>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nombre de Comprador">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nit de Comprador">
+          </mat-form-field>
+        </div>
 
-          <ng-container matColumnDef="trasmiterPerson">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Emisor </th>
-            <td mat-cell *matCellDef="let row"> 
-              <button mat-raised-button color="accent">
-                <mat-icon color="primary">record_voice_over</mat-icon> 
-                {{row.trasmiterPerson.name}} 
-              </button>
-            </td>
-          </ng-container>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Valor sin IVA">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="IVA">
+        </mat-form-field>
+
+        <div class="create-invoice-form__cta">
+            <siste-button> Registrar Factura </siste-button>
+        </div>
+
+      </div>
+
+      <div class="invoice-table__toolbar">
+        <h2> Productos </h2>
+      </div>
+      <table mat-table [dataSource]="dataSource" matSort class="siste-table">
+        
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
+          <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="uniquePrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio unitario </th>
+          <td mat-cell *matCellDef="let row"> {{row.uniquePrice}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalPrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio total </th>
+          <td mat-cell *matCellDef="let row"> {{row.totalPrice}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+      </table>
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
       
-          <ng-container matColumnDef="buyerPerson">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Comprador </th>
-            <td mat-cell *matCellDef="let row"> 
-              <button mat-raised-button color="accent">
-                  <mat-icon color="primary">person_add</mat-icon> 
-                  {{row.buyerPerson.name}} 
-              </button>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="priceIVA">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor sin IVA </th>
-            <td mat-cell *matCellDef="let row"> {{row.priceIVA}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="IVA">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> IVA </th>
-            <td mat-cell *matCellDef="let row"> {{row.IVA}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="items">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Items </th>
-            <td mat-cell *matCellDef="let row"> 
-              <button mat-raised-button color="accent"
-                  matBadge="2" matBadgePosition="after" matBadgeColor="primary">
-                  <mat-icon color="primary">assignment</mat-icon> 
-                  ver ítems
-              </button>
-            </td>
-          </ng-container>
-          
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
-        </table>
-        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </mat-tab>
   </mat-tab-group>
 
