@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'siste-login-page',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPageComponent implements OnInit {
-  constructor() {}
+export class LoginPageComponent {
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onLogin() {
+    localStorage.setItem('isLoggedin', 'true');
+    this.router.navigate(['/dashboard']);
+  }
 }

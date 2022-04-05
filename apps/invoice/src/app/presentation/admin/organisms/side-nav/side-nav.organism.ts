@@ -9,7 +9,9 @@ import { adminRoutes } from '../../admin-routes';
 export class SideNavComponent implements OnInit {
   showMenu = false;
   routes = adminRoutes;
-  constructor() {}
+  constructor() {
+    console.warn(this.routes);
+  }
 
   ngOnInit() {}
 }

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UiModule } from '@siste/ui';
@@ -11,6 +12,7 @@ const materialModules = [
 
 @NgModule({
   imports: [
+    CommonModule,
     UiModule,
     RouterModule,
   ],

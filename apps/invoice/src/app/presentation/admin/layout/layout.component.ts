@@ -12,9 +12,7 @@ export class LayoutComponent implements OnDestroy {
   sideNavMode: 'side' | 'over' = 'side';
   toolBarHeight = 64;
   private readonly mediaWatcher: Subscription;
-
   constructor(media: MediaObserver) {
-
     this.mediaWatcher = media.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'sm' || change.mqAlias === 'xs') {
         if (this.sideNavOpened) {
