@@ -7,7 +7,7 @@
 @include mat-core();
 
 $my-custom-primary: mat-palette($siste-brand);
-$my-custom-accent: mat-palette($mat-pink, 100, 500, A100);
+$my-custom-accent: mat-palette($siste-accent);
 $my-custom-warn: mat-palette($mat-lime);
 
 $siste-typography: mat.define-typography-config(

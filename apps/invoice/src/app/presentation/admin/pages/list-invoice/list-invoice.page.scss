@@ -1,0 +1,27 @@
+@import './../../../../../assets/theme';
+@import './../../../../../assets/variables';
+
+.invoice-table {
+    &__toolbar {
+        display: flex;
+        padding: 2rem 1rem 0;
+        gap: 17px;
+    }
+    &__filter {
+        display: flex;
+        padding: 0rem 1rem 0;
+        gap: 17px;
+        justify-content: end;
+    }
+}
+
+// Styles for siste-table
+.siste-table {
+    width: 100%;
+    padding: 1rem;
+    .mat-header-cell {
+        background-color: $primary-color;
+        color: $white;
+        font-size: 16px;
+    }
+}

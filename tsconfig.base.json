@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@siste/ui": ["libs/ui/src/index.ts"]
+      "@siste/ui": ["libs/ui/src/index.ts"],
+      "@siste/core": ["apps/invoice/src/app/data/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

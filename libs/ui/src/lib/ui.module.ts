@@ -1,19 +1,22 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ButtonComponent } from './button/button.component';
 import { InputComponent } from './input/input.component';
 import { AngularMaterialModule } from './angular-material.module';
 
+const COMPONENTS = [
+  ButtonComponent,
+  InputComponent,
+]
 @NgModule({
+  declarations: [
+    ...COMPONENTS
+  ],
   imports: [
     AngularMaterialModule
   ],
   exports: [
-    AngularMaterialModule
+    AngularMaterialModule,
+    ...COMPONENTS
   ],
-  declarations: [
-    ButtonComponent,
-    InputComponent
-  ]
 })
 export class UiModule {}

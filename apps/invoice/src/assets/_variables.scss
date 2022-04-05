@@ -34,3 +34,36 @@ $siste-brand: (
         A700: white,
     )
 );
+
+$siste-accent: (
+    50: #E8F9E6,
+    100: #C5EFC0,
+    200: #9FE496,
+    300: #78D96B,
+    400: #5BD14C,
+    500: #3EC92C,
+    600: #38C327,
+    700: #30BC21,
+    800: #28B51B,
+    900: #1BA910,
+    A100: #DBFFD9,
+    A200: #AAFFA6,
+    A400: #7AFF73,
+    A700: #62FF59,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: $black-87-opacity,
+        A200: $black-87-opacity,
+        A400: $black-87-opacity,
+        A700: white,
+    )
+);

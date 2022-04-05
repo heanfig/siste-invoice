@@ -1,1 +1,73 @@
-<h1>List invoice page</h1>
+<section id="invoice-table" class="mat-elevation-z8 bg-white">
+
+    <div class="invoice-table__toolbar">
+        <h1> Facturas </h1>
+        <siste-button> Registrar Nueva </siste-button>
+    </div>
+
+    <div class="invoice-table__filter">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter('2')" placeholder="Filter">
+      </mat-form-field>
+      <siste-button> Buscar </siste-button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" matSort class="siste-table">
+      
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de creación </th>
+        <td mat-cell *matCellDef="let row"> {{row.createdDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trasmiterPerson">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Emisor </th>
+        <td mat-cell *matCellDef="let row"> 
+          <button mat-raised-button color="accent">
+            <mat-icon color="primary">record_voice_over</mat-icon> 
+            {{row.trasmiterPerson.name}} 
+          </button>
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="buyerPerson">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Comprador </th>
+        <td mat-cell *matCellDef="let row"> 
+          <button mat-raised-button color="accent">
+              <mat-icon color="primary">person_add</mat-icon> 
+              {{row.buyerPerson.name}} 
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="priceIVA">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor sin IVA </th>
+        <td mat-cell *matCellDef="let row"> {{row.priceIVA}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="IVA">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> IVA </th>
+        <td mat-cell *matCellDef="let row"> {{row.IVA}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="items">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Items </th>
+        <td mat-cell *matCellDef="let row"> 
+          <button mat-raised-button color="accent"
+              matBadge="2" matBadgePosition="after" matBadgeColor="primary">
+              <mat-icon color="primary">assignment</mat-icon> 
+              ver ítems
+          </button>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+    </table>
+  
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </section>
