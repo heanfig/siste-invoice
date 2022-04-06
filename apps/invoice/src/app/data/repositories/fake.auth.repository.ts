@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { SignInEntity } from "../../core/entities/auth/sign-in.entity";
 import { SignOutEntity } from "../../core/entities/auth/sign-out.entity";
+import { AuthCode } from "../../core/enums/auth.enum";
 import { AuthRepository } from "../../core/repositories/auth.repository";
+import { SignFailException } from "../../exceptions/sign-fail.exception";
 
 @Injectable()
 export class FakeAuthRepository implements AuthRepository {
 
   public signIn(username: string, password: string): Promise<SignInEntity> {
-    debugger;
     const USERDATA = [
         {
             username: "admin",
@@ -23,13 +24,15 @@ export class FakeAuthRepository implements AuthRepository {
     const user = USERDATA.find(u => u.username === username && u.password === password);
 
     if(!user){
-        return Promise.resolve({
-            status: "00",
-            signInData: {
-                previousLoginAt: new Date,
-                deviceToken: ""
-            }
-        });
+        throw new SignFailException({
+                status: AuthCode.INCORRECT_USER,
+                signInData: {
+                    previousLoginAt: new Date,
+                    deviceToken: ""
+                }
+            }, 
+            "Usuario o contraseña Invalidos"
+        );
     }
 
     const userData: SignInEntity  = {

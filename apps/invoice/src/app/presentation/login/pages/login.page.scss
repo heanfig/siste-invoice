@@ -22,9 +22,33 @@
       background: $white;
       max-width: 500px;
       box-shadow: 0 0 20px #ddd;
+      position: relative;
       input:-webkit-autofill {
         box-shadow: 0 0 0 30px $white inset;
         -webkit-box-shadow: 0 0 0 30px $white inset;
+      }
+      &__loader {
+        z-index: 9;
+        background: #ffffff4a;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &__logo {
+          margin: 2rem 0;
+      }
+      
+      &__field {
+          margin: 11px 0;
+      }
+
+      &__cta {
+          margin: 1rem 0;
       }
     }
   }

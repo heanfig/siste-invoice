@@ -1,27 +1,30 @@
 <div class="login-page">
   <div class="content px20">
-    <form class="login-form" #myForm="ngForm" (ngSubmit)="onLogin()">
-      <div class="text-center">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="login-form__loader" *ngIf="isLoading">
+        <mat-progress-spinner mode="indeterminate" color="accent" [diameter]="70"></mat-progress-spinner>
+      </div>
+      <div class="login-form__logo text-center">
         <img src="https://www.sistecredito.com/assets/identity/logo-svg.svg" alt="">
       </div>
       <div fxLayout="row">
         <div fxFlexFill>
-          <mat-form-field class="w-100">
-            <input matInput placeholder="Email">
+          <mat-form-field class="login-form__field w-100">
+            <input matInput placeholder="Usuario" formControlName="username">
           </mat-form-field>
-          <mat-form-field class="w-100">
-            <input matInput type="password" placeholder="Password">
+          <mat-form-field class="login-form__field w-100">
+            <input matInput type="password" placeholder="Contraseña" formControlName="password">
           </mat-form-field>
         </div>
       </div>
       <div fxLayout="row">
-        <div fxFlexFill>
-          <button type="submit" mat-raised-button color="primary" class="w-100" (click)="onLogin()">
+        <div fxFlexFill class="login-form__cta">
+          <button type="submit" mat-raised-button color="primary" class="w-100" [disabled]="loginForm.invalid">
             Iniciar sesión
           </button>
         </div>
       </div>
-
+      <siste-alert *ngIf="errorMessage">{{ errorMessage }}</siste-alert>
     </form>
   </div>
 </div>
