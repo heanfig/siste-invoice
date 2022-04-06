@@ -32,7 +32,7 @@
 
 ### Demo
 
-se ha publicado en netlify 
+se ha publicado en netlify https://eloquent-kashata-7268f2.netlify.app/auth/login
 
 ### Ejecutar proyecto localmente
 
