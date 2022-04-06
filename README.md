@@ -15,7 +15,7 @@
 
 ### Características Funcionales Realizadas
 
-  1. Inicio de sesion
+  1. Inicio de sesion ( pruebas con **user** admin y **pass** admin )
   2. Implementacion de middleware-guards para evitar entrar al inicio de sesion si hay una sesion
   3. Lista de Factura
   4. Detalle de factura, comprador e items
