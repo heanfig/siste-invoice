@@ -7,6 +7,6 @@ import { InvoiceRoutingModule } from './invoice-routing.module';
     UiModule,
     InvoiceRoutingModule,
   ],
-  providers: [],
+  providers: []
 })
 export class InvoiceModule {}

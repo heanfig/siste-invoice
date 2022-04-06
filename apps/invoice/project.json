@@ -49,6 +49,12 @@
           "outputHashing": "all"
         },
         "development": {
+          "fileReplacements": [
+            {
+              "replace": "apps/invoice/src/app/config/service-provider.config.ts",
+              "with": "apps/invoice/src/app/config/service-provider.config.fake.ts"
+            }
+          ],
           "buildOptimizer": false,
           "optimization": false,
           "vendorChunk": true,

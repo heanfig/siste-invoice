@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { SERVICE_PROVIDERS } from './config/service-provider.config';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    SERVICE_PROVIDERS
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

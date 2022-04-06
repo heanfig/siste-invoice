@@ -1,6 +1,5 @@
-$white: #ffffff;
-$main-background-color: #fafafa;
-$primary-color: #00a8ff;
+@import './../../../../assets/theme';
+@import './../../../../assets/variables';
 
 .login-page {
   display: flex;
