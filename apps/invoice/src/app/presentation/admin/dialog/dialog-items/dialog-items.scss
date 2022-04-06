@@ -1,0 +1,12 @@
+@import './../../../../../assets/theme';
+@import './../../../../../assets/variables';
+
+.siste-table {
+    width: 100%;
+    padding: 1rem;
+    .mat-header-cell {
+        background-color: $primary-color;
+        color: $white;
+        font-size: 16px;
+    }
+}

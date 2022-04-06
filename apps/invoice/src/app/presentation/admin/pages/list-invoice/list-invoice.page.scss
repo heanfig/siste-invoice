@@ -19,9 +19,14 @@
 .siste-table {
     width: 100%;
     padding: 1rem;
+    
     .mat-header-cell {
         background-color: $primary-color;
         color: $white;
         font-size: 16px;
+    }
+
+    &__button {
+        margin: 12px 0px;
     }
 }

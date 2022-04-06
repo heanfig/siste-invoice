@@ -7,9 +7,8 @@
 
     <div class="invoice-table__filter">
       <mat-form-field>
-        <input matInput (keyup)="applyFilter('2')" placeholder="Filter">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar">
       </mat-form-field>
-      <siste-button> Buscar </siste-button>
     </div>
 
     <table mat-table [dataSource]="dataSource" matSort class="siste-table">
@@ -27,7 +26,7 @@
       <ng-container matColumnDef="trasmiterPerson">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Emisor </th>
         <td mat-cell *matCellDef="let row"> 
-          <button mat-raised-button color="accent">
+          <button mat-raised-button color="accent" (click)="viewBuyerDialogData(row.trasmiterPerson)">
             <mat-icon color="primary">record_voice_over</mat-icon> 
             {{row.trasmiterPerson.name}} 
           </button>
@@ -37,7 +36,7 @@
       <ng-container matColumnDef="buyerPerson">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Comprador </th>
         <td mat-cell *matCellDef="let row"> 
-          <button mat-raised-button color="accent">
+          <button mat-raised-button color="accent" (click)="viewBuyerDialogData(row.buyerPerson)">
               <mat-icon color="primary">person_add</mat-icon> 
               {{row.buyerPerson.name}} 
           </button>
@@ -46,19 +45,21 @@
 
       <ng-container matColumnDef="priceIVA">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor sin IVA </th>
-        <td mat-cell *matCellDef="let row"> {{row.priceIVA}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.priceIVA | currency:'$ ' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="IVA">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> IVA </th>
-        <td mat-cell *matCellDef="let row"> {{row.IVA}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.IVA}}% </td>
       </ng-container>
 
       <ng-container matColumnDef="items">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Items </th>
         <td mat-cell *matCellDef="let row"> 
           <button mat-raised-button color="accent"
-              matBadge="2" matBadgePosition="after" matBadgeColor="primary">
+              class="siste-table__button"
+              (click)="viewInvoiceItems(row.id, row.items)"
+              [matBadge]="row.items.length" matBadgePosition="after" matBadgeColor="primary">
               <mat-icon color="primary">assignment</mat-icon> 
               ver ítems
           </button>

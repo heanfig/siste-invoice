@@ -1,0 +1,16 @@
+<h2 mat-dialog-title><mat-icon color="primary">person_add</mat-icon>  Detalle</h2>
+<mat-dialog-content class="mat-typography">
+    <ul class="dialog-person-detail">
+        <li class="dialog-person-detail__item">
+            <strong class="dialog-person-detail__label">Nombre</strong>
+            <span class="dialog-person-detail__value"> {{ person.name }} </span>
+        </li>
+        <li class="dialog-person-detail__item">
+            <strong class="dialog-person-detail__label">Nit</strong>
+            <span class="dialog-person-detail__value"> {{ person.nit }} </span>
+        </li>
+    </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button color="primary" mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

@@ -1,17 +1,22 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { InvoiceEntity } from '../../../../core/entities/invoice.entity';
 import { Router } from '@angular/router';
+import { InvoiceInteractor } from '../../../../core/invoice.interactor';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogPersonComponent } from '../../dialog/dialog-person/dialog-person';
+import { InvoiceItemEntity, PersonEntity } from '../../../../core';
+import { DialogItemsComponent } from '../../dialog/dialog-items/dialog-items';
 
 @Component({
   selector: 'siste-list-invoice-page',
   templateUrl: './list-invoice.page.html',
   styleUrls: ['./list-invoice.page.scss'],
 })
-export class ListInvoicePageComponent implements AfterViewInit {
+export class ListInvoicePageComponent implements AfterViewInit, OnInit {
   displayedColumns = ['id', 'createdDate', 'trasmiterPerson', 'buyerPerson', 'priceIVA', 'IVA', 'items'];
   dataSource: MatTableDataSource<InvoiceEntity>;
   selection: SelectionModel<InvoiceEntity>;
@@ -19,47 +24,40 @@ export class ListInvoicePageComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor(protected _router: Router) {
-    this.dataSource = new MatTableDataSource<InvoiceEntity>([
-      {
-        id: "1",
-        createdDate: "2020-01-01",
-        trasmiterPerson: {
-          name: "Herman",
-          nit: "123456789-0"
-        },
-        buyerPerson: {
-          name: "Manuela",
-          nit: "987654321-0"
-        },
-        priceIVA: 0,
-        IVA: 0,
-        items: [
-          {
-            id: "00001",
-            description: "Producto 1",
-            quantity: 6,
-            uniquePrice: 100,
-            totalPrice: 600,
-          },
-          {
-            id: "00002",
-            description: "Producto 2",
-            quantity: 2,
-            uniquePrice: 200,
-            totalPrice: 400,
-          },
-          {
-            id: "00003",
-            description: "Producto 3",
-            quantity: 1,
-            uniquePrice: 300,
-            totalPrice: 300,
-          },
-        ]
-      },
-    ]);
+  constructor(
+    protected _router: Router,
+    private interactor: InvoiceInteractor,
+    public dialog: MatDialog,
+  ) {
+    this.dataSource = new MatTableDataSource<InvoiceEntity>([]);
     this.selection = new SelectionModel<InvoiceEntity>(true, []);
+  }
+
+  async ngOnInit() {
+    try {
+      const invoices = await this.interactor.getInvoices();
+      this.dataSource.data = invoices;
+    }
+    catch (error) {
+      console.warn(error);
+    }
+  }
+
+  viewBuyerDialogData(person: PersonEntity){
+    this.dialog.open(DialogPersonComponent,{
+      data: {
+        ...person,
+      },
+    });
+  }
+
+  viewInvoiceItems(invoiceNumber: string, invoiceItems: InvoiceItemEntity[]){
+    this.dialog.open(DialogItemsComponent,{
+      data: {
+        invoiceNumber,
+        invoiceItems,
+      },
+    });
   }
 
   ngAfterViewInit() {
@@ -67,7 +65,8 @@ export class ListInvoicePageComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(eventTarget: KeyboardEvent) {
+    const filterValue = (eventTarget.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -78,17 +77,4 @@ export class ListInvoicePageComponent implements AfterViewInit {
     this._router.navigate(['/admin/create']);
   }
 
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected()
-      ? this.selection.clear()
-      : this.dataSource.data.forEach(row => this.selection.select(row));
-  }
 }
