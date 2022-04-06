@@ -3,11 +3,29 @@
 # Siste
 
 - tema personalizado usando Angular material
+- Arquitectura BEM
+- Arquitectura limpia
 - Gestor de tareas de NX, DIAGRAMA
 - Diagrama de componentes
 - publicarlo online
+- nx cloud
 - Diseño atomico
 - Creacion componentes reutilizables
+- Referencias de arquitectura front
+- Fake backend 
+- Reactive Forms
+- Excepciones personalizadas
+- Explicar y listar los servicios
+- Login
+- Logout
+- validateToken
+
+Pasos para integrar el API
+
+- Especificar pasos
+
+Pendiente
+- Pruebas unitaria
 
 This project was generated using [Nx](https://nx.dev).
 

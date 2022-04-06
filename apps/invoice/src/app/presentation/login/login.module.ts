@@ -6,6 +6,7 @@ import { UiModule } from '@siste/ui';
 import { AuthInteractor } from '../../core/auth.interactor';
 import { AuthRepository } from '../../core/repositories/auth.repository';
 import { LoginRoutingModule } from './login-routing.module';
+import { AuthMiddleware } from './middleware/auth.middleware';
 import { LoginPageComponent } from './pages/login.page';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { LoginPageComponent } from './pages/login.page';
     FlexLayoutModule,
   ],
   providers: [
+    AuthMiddleware,
     {
       provide: AuthInteractor,
       deps: [AuthRepository],

@@ -1,24 +1,25 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthInteractor } from '../../../../core/auth.interactor';
 
 @Component({
   selector: 'siste-top-nav',
   templateUrl: './top-nav.organism.html',
   styleUrls: ['./top-nav.organism.scss']
 })
-export class TopNavComponent implements OnInit {
+export class TopNavComponent {
   @Output() sideNavToggled = new EventEmitter<void>();
 
-  constructor(private readonly router: Router) {}
-
-  ngOnInit() {}
+  constructor(private readonly router: Router, 
+    private interactor: AuthInteractor) {}
 
   toggleSidebar() {
     this.sideNavToggled.emit();
   }
 
-  onLoggedout() {
-    localStorage.removeItem('isLoggedin');
-    this.router.navigate(['/login']);
+  async onLoggedout() {
+    await this.interactor.signOut();
+    localStorage.removeItem('userdata');
+    this.router.navigate(['/auth/login']);
   }
 }

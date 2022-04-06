@@ -52,4 +52,8 @@ export class FakeAuthRepository implements AuthRepository {
     });
   }
 
+  public validateToken(): Promise<boolean> {
+    return Promise.resolve(true);
+  }
+
 }

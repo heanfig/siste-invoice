@@ -43,8 +43,8 @@ export class LoginPageComponent {
     try {
       this.errorMessage = '';
       const result = await this.interactor.signIn(this.username, this.password);
-      console.warn(result);
-      //this.router.navigate(['/admin/list']);
+      localStorage.setItem('userdata', JSON.stringify(result));
+      this.router.navigate(['/admin/list']);
     }
     catch( error ){
       if( error instanceof SignFailException) {

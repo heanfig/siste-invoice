@@ -4,7 +4,7 @@ import { ListInvoicePageComponent } from "./pages/list-invoice/list-invoice.page
 export const adminRoutes = [
     {
         path: '',
-        redirectTo: 'list',
+        redirectTo: 'list'
     },
     {
         path: 'list',

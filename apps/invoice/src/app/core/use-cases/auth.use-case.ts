@@ -7,6 +7,10 @@ export class AuthUseCase {
     return this.repository.signIn(username, password);
   }
 
+  public validateToken(token: string) {
+    return this.repository.validateToken(token);
+  }
+
   public signOut() {
     return this.repository.signOut();
   }

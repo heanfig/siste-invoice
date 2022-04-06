@@ -12,6 +12,10 @@ export class AuthInteractor {
     return this.authUseCase.signIn(username, password);
   }
 
+  public validateToken(token: string) {
+    return this.authUseCase.validateToken(token);
+  }
+
   public signOut() {
     return this.authUseCase.signOut();
   }
